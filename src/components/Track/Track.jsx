@@ -16,7 +16,11 @@ const Track = ({ trackObject }) => {
     setTracklist((prev) => prev.filter((track) => track.id !== trackObject.id));
   };
 
-  const buttonIcon = isOnTracklist ? <FaMinus /> : <FaPlus />;
+  const buttonIcon = isOnTracklist ? (
+    <FaMinus size={25} />
+  ) : (
+    <FaPlus size={25} />
+  );
   const onClick = isOnTracklist ? removeFromTracklist : addToTracklist;
 
   return (
