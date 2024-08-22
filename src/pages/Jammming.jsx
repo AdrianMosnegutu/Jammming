@@ -1,19 +1,26 @@
-import { useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Main } from "../components/Main";
 import { Navigation } from "../components/Navigation";
-import { ProfileProvider } from "../contexts/ProfileContext";
+import ProfileContext from "../contexts/ProfileContext";
 import { SearchProvider } from "../contexts/SearchContext";
 import { TracklistProvider } from "../contexts/TracklistContext";
-import mockProfile from "../mock/mockProfile.json";
 import mockTrack from "../mock/mockTrack.json";
+import { getProfileData } from "../services/spotify-api";
 
 const Jammming = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("track");
   const [searchResults, setSearchResults] = useState([mockTrack, mockTrack]);
+  const { setProfile } = useContext(ProfileContext);
+
+  useEffect(() => {
+    getProfileData()
+      .then((data) => setProfile(data))
+      .catch((error) => console.log(error));
+  }, [setProfile]);
 
   return (
-    <ProfileProvider mockProfile={mockProfile}>
+    <>
       <SearchProvider
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
@@ -25,7 +32,7 @@ const Jammming = () => {
       <TracklistProvider>
         <Main searchResults={searchResults} />
       </TracklistProvider>
-    </ProfileProvider>
+    </>
   );
 };
 

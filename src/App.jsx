@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { ProfileProvider } from "./contexts/ProfileContext";
 import Jammming from "./pages/Jammming";
 import LandingPage from "./pages/LandingPage";
 import { getToken } from "./services/authenticator";
@@ -11,7 +12,13 @@ const App = () => {
     }
   }, []);
 
-  return localStorage.getItem("access_token") ? <Jammming /> : <LandingPage />;
+  return localStorage.getItem("access_token") ? (
+    <ProfileProvider>
+      <Jammming />
+    </ProfileProvider>
+  ) : (
+    <LandingPage />
+  );
 };
 
 export default App;
