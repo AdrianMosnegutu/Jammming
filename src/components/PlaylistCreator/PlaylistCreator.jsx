@@ -43,7 +43,7 @@ const PlaylistCreator = () => {
       )
       .then(() => {
         alert("SUCCESS!");
-        setTracklist([]);
+        window.location = "/";
       })
       .catch((error) => {
         alert("SOMETHING WENT WRONG!");
@@ -55,7 +55,7 @@ const PlaylistCreator = () => {
 
   return (
     <form
-      className="flex w-full flex-col items-center justify-center gap-12 px-32 py-12 shadow-lg"
+      className="z-30 flex w-full flex-col items-center justify-center gap-12 px-32 py-12 shadow-lg"
       onSubmit={handlePlaylistCreation}
     >
       <div className="flex w-full gap-12">

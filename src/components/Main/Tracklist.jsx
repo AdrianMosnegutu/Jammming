@@ -1,14 +1,23 @@
 import PropTypes from "prop-types";
-import { FaFrown } from "react-icons/fa";
 import { Track } from "../Track";
 
-const Tracklist = ({ className, messageIfEmpty, trackObjectArray }) =>
+const Tracklist = ({
+  className,
+  messageIfEmpty,
+  iconIfEmpty,
+  trackObjectArray,
+}) =>
   trackObjectArray.length === 0 ? (
-    <div className={`${className} divide-y-0`}>
-      <h3 className="text-light-secondary mt-3 text-center text-xl">
+    <div
+      className={`${className
+        .split(" ")
+        .filter((className) => className !== "divide-y-[1px]")
+        .join(" ")}`}
+    >
+      <h3 className="text-light-secondary mt-5 text-center text-xl">
         {messageIfEmpty}
       </h3>
-      <FaFrown className="text-dark-tertiary m-auto mt-52" size={350} />
+      {iconIfEmpty}
     </div>
   ) : (
     <ul className={className}>
@@ -21,6 +30,7 @@ const Tracklist = ({ className, messageIfEmpty, trackObjectArray }) =>
 Tracklist.propTypes = {
   className: PropTypes.string,
   messageIfEmpty: PropTypes.string.isRequired,
+  iconIfEmpty: PropTypes.node,
   trackObjectArray: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
