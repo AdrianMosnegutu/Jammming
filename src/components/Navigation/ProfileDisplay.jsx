@@ -10,12 +10,23 @@ const ProfileDisplay = () => {
   };
 
   return (
-    <div>
-      <div>
-        {profile && <span>{profile.username}</span>}
-        <button onClick={handleLogOut}>Log out</button>
+    <div className="flex items-center gap-5">
+      <div className="flex flex-col items-end justify-around">
+        {profile && <span className="text-2xl">{profile.username}</span>}
+        <button
+          className="text-spotify-green bg-transparent hover:underline"
+          onClick={handleLogOut}
+        >
+          Log out
+        </button>
       </div>
-      {profile && profile.icon && <img src={profile.icon} alt="profile icon" />}
+      {profile && profile.icon && (
+        <img
+          className="aspect-square w-14 rounded-full"
+          src={profile.icon}
+          alt="profile icon"
+        />
+      )}
     </div>
   );
 };

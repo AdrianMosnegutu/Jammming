@@ -21,14 +21,20 @@ const SearchBar = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form
+      className="border-light-main bg-dark-main flex h-11 w-5/12 rounded-full border"
+      onSubmit={handleSubmit}
+    >
       <InputField
         searchQuery={localSearchQuery}
         onSearchQueryChange={setLocalSearchQuery}
       />
       <Filter filter={localFilter} onFilterChange={setLocalFilter} />
-      <button type="submit">
-        <FaSearch />
+      <button
+        className="bg-spotify-green border-light-main text-dark-main rounded-r-full border-l px-6 transition ease-in hover:bg-opacity-75 active:bg-opacity-50"
+        type="submit"
+      >
+        <FaSearch size={25} />
       </button>
     </form>
   );
