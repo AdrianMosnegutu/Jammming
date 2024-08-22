@@ -1,5 +1,7 @@
+import Jammming from "./pages/Jammming";
+
 const App = () => {
-  return <div></div>;
+  return <Jammming />;
 };
 
 export default App;
