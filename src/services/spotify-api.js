@@ -106,3 +106,29 @@ export async function setPlaylistCover(playlistID, coverImageBase64) {
     },
   });
 }
+
+/**
+ * Adds a list of tracks to a Spotify playlist.
+ *
+ * @param {string} playlistID - The ID of the Spotify playlist to add the tracks to.
+ * @param {string[]} trackURIS - An array of Spotify track URIs to add to the playlist.
+ * @returns {Promise<void>} - A Promise that resolves when the tracks have been added to the playlist.
+ */
+export async function addTracksToPlaylist(playlistID, trackURIS) {
+  const accessToken = localStorage.getItem("access_token");
+  const url = new URL(
+    `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
+  );
+
+  const tracksToAdd = {
+    uris: trackURIS,
+    position: 0,
+  };
+
+  await axios.post(url, tracksToAdd, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+}
