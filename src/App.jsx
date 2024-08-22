@@ -1,7 +1,17 @@
+import { useEffect } from "react";
 import Jammming from "./pages/Jammming";
+import LandingPage from "./pages/LandingPage";
+import { getToken } from "./services/authenticator";
 
 const App = () => {
-  return <Jammming />;
+  useEffect(() => {
+    if (!localStorage.getItem("access_token")) {
+      const code = new URLSearchParams(window.location.search).get("code");
+      if (code) getToken(code);
+    }
+  }, []);
+
+  return localStorage.getItem("access_token") ? <Jammming /> : <LandingPage />;
 };
 
 export default App;
