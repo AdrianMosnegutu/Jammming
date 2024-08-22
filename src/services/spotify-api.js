@@ -85,3 +85,24 @@ export async function createPlaylist(userID, name, description, isPublic) {
 
   return response.data.id;
 }
+
+/**
+ * Sets the cover image for a Spotify playlist.
+ *
+ * @param {string} playlistID - The ID of the Spotify playlist to set the cover image for.
+ * @param {string} coverImageBase64 - The base64-encoded image data for the new cover image.
+ * @returns {Promise<void>} - A Promise that resolves when the cover image has been set.
+ */
+export async function setPlaylistCover(playlistID, coverImageBase64) {
+  const accessToken = localStorage.getItem("access_token");
+  const url = new URL(
+    `https://api.spotify.com/v1/playlists/${playlistID}/images`,
+  );
+
+  await axios.put(url, coverImageBase64, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "text/plain",
+    },
+  });
+}
