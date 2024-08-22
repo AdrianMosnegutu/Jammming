@@ -1,0 +1,21 @@
+{
+  "name": "Jammming",
+  "short_name": "Jammming",
+  "description": "A React app that lets you build and export a custom playlist directly to your Spotify account.",
+  "icons": [
+    {
+      "src": "/icon192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/",
+  "display": "standalone",
+  "theme_color": "#121212",
+  "lang": "en-US"
+}

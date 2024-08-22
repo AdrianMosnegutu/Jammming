@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Red Hat Display", sans-serif;
+  min-height: 900px;
+  height: 100vh;
+}
