@@ -21,10 +21,22 @@ const PlaylistCover = ({ onCoverChange }) => {
 
   return (
     <>
-      <label htmlFor="playlistCover">
-        {!coverURL ? <FaCamera /> : <img src={coverURL} alt="playlist cover" />}
+      <label
+        className={`text-dark-main group flex-shrink-0 ${coverURL ? "bg-transparent" : "bg-light-main"} flex aspect-square w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md transition-opacity ease-in hover:opacity-75`}
+        htmlFor="playlistCover"
+      >
+        {!coverURL ? (
+          <FaCamera size={60} />
+        ) : (
+          <img
+            className="h-full w-full object-cover transition-opacity ease-in group-hover:opacity-75"
+            src={coverURL}
+            alt="playlist cover"
+          />
+        )}
       </label>
       <input
+        className="hidden"
         type="file"
         name="playlistCover"
         id="playlistCover"

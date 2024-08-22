@@ -8,9 +8,9 @@ import {
 import ProfileContext from "../../contexts/ProfileContext";
 import TracklistContext from "../../contexts/TracklistContext";
 import {
+  addTracksToPlaylist,
   createPlaylist,
   setPlaylistCover,
-  addTracksToPlaylist,
 } from "../../services/spotify-api";
 
 const PlaylistCreator = () => {
@@ -20,10 +20,15 @@ const PlaylistCreator = () => {
   const [isPublic, setIsPublic] = useState(true);
 
   const { profile } = useContext(ProfileContext);
-  const { tracklist } = useContext(TracklistContext);
+  const { tracklist, setTracklist } = useContext(TracklistContext);
 
   const handlePlaylistCreation = (e) => {
     e.preventDefault();
+
+    if (tracklist.length === 0) {
+      alert("Playlist is empty!");
+      return;
+    }
 
     createPlaylist(profile.id, name, description, isPublic)
       .then((playlistID) => {
@@ -36,7 +41,10 @@ const PlaylistCreator = () => {
           tracklist.map((trackObject) => trackObject.uri),
         ),
       )
-      .then(() => alert("SUCCESS!"))
+      .then(() => {
+        alert("SUCCESS!");
+        setTracklist([]);
+      })
       .catch((error) => {
         alert("SOMETHING WENT WRONG!");
         {
@@ -46,10 +54,13 @@ const PlaylistCreator = () => {
   };
 
   return (
-    <form onSubmit={handlePlaylistCreation}>
-      <div>
+    <form
+      className="flex w-full flex-col items-center justify-center gap-12 px-32 py-12 shadow-lg"
+      onSubmit={handlePlaylistCreation}
+    >
+      <div className="flex w-full gap-12">
         <PlaylistCover onCoverChange={setCover} />
-        <div>
+        <div className="flex w-full flex-col gap-5">
           <PlaylistName name={name} onNameChange={setName} />
           <PlaylistDescription
             description={description}
@@ -58,7 +69,12 @@ const PlaylistCreator = () => {
           <PlaylistPrivacy isPublic={isPublic} onPrivacyChange={setIsPublic} />
         </div>
       </div>
-      <button type="submit">Export to Spotify</button>
+      <button
+        className="border-spotify-green text-spotify-green hover:bg-spotify-green hover:text-dark-main rounded-full border px-6 py-2 text-xl transition ease-in"
+        type="submit"
+      >
+        Export to Spotify
+      </button>
     </form>
   );
 };
