@@ -7,6 +7,7 @@ import {
 } from ".";
 import ProfileContext from "../../contexts/ProfileContext";
 import TracklistContext from "../../contexts/TracklistContext";
+import { createPlaylist } from "../../services/spotify-api";
 
 const PlaylistCreator = () => {
   const [cover, setCover] = useState(null);
@@ -19,6 +20,12 @@ const PlaylistCreator = () => {
 
   const handlePlaylistCreation = (e) => {
     e.preventDefault();
+
+    createPlaylist(profile.id, name, description, isPublic)
+      .then((playlistID) => {
+        console.log(playlistID);
+      })
+      .catch((error) => console.log(error));
   };
 
   return (

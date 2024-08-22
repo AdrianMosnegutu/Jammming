@@ -56,3 +56,32 @@ export async function getSearchResults(searchQuery, filter) {
     coverArt: track.album.images[0]?.url,
   }));
 }
+
+/**
+ * Creates a new Spotify playlist for the specified user.
+ *
+ * @param {string} userID - The ID of the Spotify user to create the playlist for.
+ * @param {string} name - The name of the new playlist.
+ * @param {string} description - The description of the new playlist.
+ * @param {boolean} isPublic - Whether the new playlist should be public or private.
+ * @returns {Promise<string>} - The ID of the newly created playlist.
+ */
+export async function createPlaylist(userID, name, description, isPublic) {
+  const accessToken = localStorage.getItem("access_token");
+  const url = new URL(`https://api.spotify.com/v1/users/${userID}/playlists`);
+
+  const playlistInfo = {
+    name,
+    description,
+    public: isPublic,
+  };
+
+  const response = await axios.post(url, playlistInfo, {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+      "Content-Type": "application/json",
+    },
+  });
+
+  return response.data.id;
+}
