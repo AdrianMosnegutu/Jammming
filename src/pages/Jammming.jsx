@@ -4,13 +4,12 @@ import { Navigation } from "../components/Navigation";
 import ProfileContext from "../contexts/ProfileContext";
 import { SearchProvider } from "../contexts/SearchContext";
 import { TracklistProvider } from "../contexts/TracklistContext";
-import mockTrack from "../mock/mockTrack.json";
-import { getProfileData } from "../services/spotify-api";
+import { getProfileData, getSearchResults } from "../services/spotify-api";
 
 const Jammming = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [filter, setFilter] = useState("track");
-  const [searchResults, setSearchResults] = useState([mockTrack, mockTrack]);
+  const [searchResults, setSearchResults] = useState([]);
   const { setProfile } = useContext(ProfileContext);
 
   useEffect(() => {
@@ -18,6 +17,13 @@ const Jammming = () => {
       .then((data) => setProfile(data))
       .catch((error) => console.log(error));
   }, [setProfile]);
+
+  useEffect(() => {
+    if (searchQuery && filter)
+      getSearchResults(searchQuery, filter)
+        .then((data) => setSearchResults(data))
+        .catch((error) => console.log(error));
+  }, [searchQuery, filter]);
 
   return (
     <>

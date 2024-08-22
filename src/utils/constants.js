@@ -7,3 +7,4 @@ export const SCOPE = [
   "playlist-modify-private",
   "ugc-image-upload",
 ].join(" ");
+export const SEARCH_LIMIT = 50;
