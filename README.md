@@ -91,6 +91,7 @@ Users can log in using their Spotify credentials.
 - **Vite**: Fast development server and build tool for modern web projects.
 - **Spotify Web API**: Used to fetch song data and manage playlists.
 - **Node.js** and **axios**: Backend for handling API requests.
+- **Tailwindcss**: Utility-first CSS framework that provides low-level utility classes to build custom designs directly in your HTML.
 - **OAuth 2.0**: For authenticating with Spotify.
 
 ## Contributing
