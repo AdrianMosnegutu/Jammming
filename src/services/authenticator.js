@@ -1,3 +1,4 @@
+import axios from "axios";
 import { REDIRECT_URI, SCOPE } from "../utils/constants";
 
 /**
@@ -66,23 +67,18 @@ export async function getToken(code) {
   const codeVerifier = localStorage.getItem("code_verifier");
   const url = new URL("https://accounts.spotify.com/api/token");
 
-  const payload = {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/x-www-form-urlencoded",
-    },
-    body: new URLSearchParams({
-      client_id: import.meta.env.VITE_CLIENT_ID,
-      grant_type: "authorization_code",
-      code,
-      redirect_uri: REDIRECT_URI,
-      code_verifier: codeVerifier,
-    }),
-  };
+  const payload = new URLSearchParams({
+    client_id: import.meta.env.VITE_CLIENT_ID,
+    grant_type: "authorization_code",
+    code,
+    redirect_uri: REDIRECT_URI,
+    code_verifier: codeVerifier,
+  });
 
-  const body = await fetch(url, payload);
-  const response = await body.json();
+  const response = await axios.post(url, payload, {
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+  });
 
-  localStorage.setItem("access_token", response.access_token);
+  localStorage.setItem("access_token", response.data.access_token);
   window.location.href = "/";
 }
