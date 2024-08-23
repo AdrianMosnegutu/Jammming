@@ -11,7 +11,7 @@ const Main = ({ searchResults }) => {
   return (
     <main className="flex h-[calc(100vh-6rem)] bg-dark-main text-light-main">
       <Tracklist
-        className="z-40 h-full w-5/12 divide-y-[1px] divide-light-main overflow-scroll bg-dark-secondary px-8 py-4"
+        className="z-40 h-full w-5/12 divide-y-[1px] divide-light-main overflow-scroll bg-dark-secondary px-10 py-4"
         messageIfEmpty="No tracks found..."
         iconIfEmpty={
           <FaFrown className="m-auto mt-52 text-dark-tertiary" size={350} />
