@@ -18,11 +18,11 @@ const TrackCoverArt = ({ coverArt, previewAudio }) => {
         />
         {previewAudio &&
           (currentPlayingPreview?.src === previewAudio?.src ? (
-            <div className="player-icon relative right-20 rounded-full border-2 border-light-main p-4">
+            <div className="player-icon-container">
               <FaStop className="player-icon" size={30} />
             </div>
           ) : (
-            <div className="player-icon relative right-20 rounded-full border-2 border-light-main p-4 opacity-0 group-hover:opacity-100">
+            <div className="player-icon-container opacity-0 group-hover:opacity-100">
               <FaPlay className="player-icon relative left-[2px]" size={30} />
             </div>
           ))}

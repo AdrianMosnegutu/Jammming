@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import { useContext } from "react";
+import { TrackCoverArt, TrackDetails } from ".";
 import TracklistContext from "../../contexts/TracklistContext";
-import { TrackCoverArt, TrackDetails } from "./";
 
 const TrackDisplay = ({ trackObject, buttonIcon, onClick }) => {
   const { id, coverArt, name, artists, album, previewAudio } = trackObject;

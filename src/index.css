@@ -17,6 +17,10 @@ header {
 }
 
 @layer components {
+  .player-icon-container {
+    @apply player-icon relative right-20 rounded-full border-2 border-light-main p-4;
+  }
+
   .player-icon {
     @apply flex-shrink-0 transition-opacity ease-in;
   }
