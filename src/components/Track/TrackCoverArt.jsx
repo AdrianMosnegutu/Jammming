@@ -5,12 +5,14 @@ import TracklistContext from "../../contexts/TracklistContext";
 
 const TrackCoverArt = ({ coverArt, previewAudio }) => {
   const { currentPlayingPreview } = useContext(TracklistContext);
+  const trackIsPlaying =
+    previewAudio && currentPlayingPreview?.src === previewAudio.src;
 
   return (
     coverArt && (
       <div className="flex aspect-square w-24 flex-shrink-0 items-center overflow-hidden rounded-md">
         <img
-          className={`h-full w-full object-cover opacity-100 ${previewAudio && currentPlayingPreview?.src === previewAudio.src && "opacity-50"} ${previewAudio && "transition-opacity ease-in group-hover:opacity-50"}`}
+          className={`h-full w-full object-cover opacity-100 ${trackIsPlaying && "opacity-50"} ${previewAudio && "transition-opacity ease-in group-hover:opacity-50"}`}
           src={coverArt}
           alt="cover art"
         />

@@ -31,7 +31,12 @@ const TrackDisplay = ({ trackObject, buttonIcon, onClick }) => {
         onClick={handlePlayPreview}
       >
         <TrackCoverArt coverArt={coverArt} previewAudio={previewAudio} />
-        <TrackDetails name={name} artists={artists} album={album} />
+        <TrackDetails
+          name={name}
+          artists={artists}
+          album={album}
+          previewAudio={previewAudio}
+        />
       </div>
       <button
         className="relative left-1 rounded-full bg-light-main bg-opacity-0 p-2 transition ease-in hover:bg-opacity-25"
