@@ -24,14 +24,11 @@ export async function getProfileData() {
 }
 
 /**
- * Retrieves a list of Spotify tracks based on a search query and filter.
+ * Retrieves search results from the Spotify API based on the provided search query and filter.
  *
- * @param {string} searchQuery - The search query to use for the Spotify
- *  search.
- * @param {string} filter - The filter to apply to the search query (e.g.
- * "artist", "album", "track").
- * @returns {Promise<{ id: string, uri: string, name: string, artists: string[], album: string, coverArt: string | null }[]>} -
- *  An array of objects containing the search results, including the track ID, URI, name, artists, album, and cover art URL.
+ * @param {string} searchQuery - The search query to use for the Spotify search.
+ * @param {string} filter - The filter to apply to the Spotify search (e.g. "artist", "album", "track").
+ * @returns {Promise<{ id: string, uri: string, name: string, artists: string[], album: string, coverArt: string | null, previewAudio: HTMLAudioElement | null }>} - An array of search result objects, each containing information about a Spotify track.
  */
 export async function getSearchResults(searchQuery, filter) {
   const accessToken = localStorage.getItem("access_token");
@@ -54,6 +51,7 @@ export async function getSearchResults(searchQuery, filter) {
     artists: track.artists.map((artist) => artist.name),
     album: track.album.name,
     coverArt: track.album.images[0]?.url,
+    previewAudio: track.preview_url && new Audio(track.preview_url),
   }));
 }
 

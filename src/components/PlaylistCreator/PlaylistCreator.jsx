@@ -20,7 +20,7 @@ const PlaylistCreator = () => {
   const [isPublic, setIsPublic] = useState(true);
 
   const { profile } = useContext(ProfileContext);
-  const { tracklist, setTracklist } = useContext(TracklistContext);
+  const { tracklist } = useContext(TracklistContext);
 
   const handlePlaylistCreation = (e) => {
     e.preventDefault();
@@ -47,9 +47,7 @@ const PlaylistCreator = () => {
       })
       .catch((error) => {
         alert("SOMETHING WENT WRONG!");
-        {
-          console.log(error);
-        }
+        console.log(error);
       });
   };
 
@@ -70,7 +68,7 @@ const PlaylistCreator = () => {
         </div>
       </div>
       <button
-        className="border-spotify-green text-spotify-green hover:bg-spotify-green hover:text-dark-main rounded-full border px-6 py-2 text-xl transition ease-in"
+        className="rounded-full border border-spotify-green px-6 py-2 text-xl text-spotify-green transition ease-in hover:bg-spotify-green hover:text-dark-main"
         type="submit"
       >
         Export to Spotify
