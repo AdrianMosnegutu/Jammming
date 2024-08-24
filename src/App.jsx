@@ -12,12 +12,16 @@ const App = () => {
     }
   }, []);
 
-  return localStorage.getItem("access_token") ? (
-    <ProfileProvider>
-      <Jammming />
-    </ProfileProvider>
-  ) : (
-    <LandingPage />
+  return (
+    <>
+      {localStorage.getItem("access_token") ? (
+        <ProfileProvider>
+          <Jammming />
+        </ProfileProvider>
+      ) : (
+        <LandingPage />
+      )}
+    </>
   );
 };
 

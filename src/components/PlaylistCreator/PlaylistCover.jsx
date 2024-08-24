@@ -4,14 +4,17 @@ import { FaCamera } from "react-icons/fa";
 import { MAX_IMAGE_SIZE_KB } from "../../utils/constants";
 import { convertFileToBase64, isFileSizeValid } from "../../utils/helpers";
 
-const PlaylistCover = ({ onCoverChange }) => {
+const PlaylistCover = ({ onCoverChange, onError }) => {
   const [coverURL, setCoverURL] = useState(null);
 
   const handleCoverChange = ({ target }) => {
     const imageFile = target.files[0];
 
     if (!isFileSizeValid(imageFile, MAX_IMAGE_SIZE_KB)) {
-      alert(`Image must be under ${MAX_IMAGE_SIZE_KB}kb!`);
+      onError({
+        type: "error",
+        message: `Image must be under ${MAX_IMAGE_SIZE_KB}kb!`,
+      });
       return;
     }
 
@@ -22,7 +25,7 @@ const PlaylistCover = ({ onCoverChange }) => {
   return (
     <>
       <label
-        className={`text-dark-main group flex-shrink-0 ${coverURL ? "bg-transparent" : "bg-light-main"} flex aspect-square w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md transition-opacity ease-in hover:opacity-75`}
+        className={`group flex-shrink-0 text-dark-main ${coverURL ? "bg-transparent" : "bg-light-main"} flex aspect-square w-52 cursor-pointer items-center justify-center overflow-hidden rounded-md transition-opacity ease-in hover:opacity-75`}
         htmlFor="playlistCover"
       >
         {!coverURL ? (
@@ -49,6 +52,7 @@ const PlaylistCover = ({ onCoverChange }) => {
 
 PlaylistCover.propTypes = {
   onCoverChange: PropTypes.func.isRequired,
+  onError: PropTypes.func.isRequired,
 };
 
 export default PlaylistCover;
