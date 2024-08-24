@@ -11,7 +11,7 @@ Users can log in using their Spotify credentials.
 ## Features
 
 - **Search & Filter:** Find songs using filters such as track, artist, album, or genre.
-- **Listen to Previews:** Listen to a short preview of the songs before adding them to your playlist. Not all songs have been provided with previews!
+- **Listen to Previews:** Listen to a short preview of the songs before adding them to your playlist. Not all songs have previews!
 - **Create Custom Playlists:**
   - Choose a playlist cover.
   - Set the playlist name and description.
