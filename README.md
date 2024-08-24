@@ -61,7 +61,7 @@ The web app is available [here](https://jammming-adrian-mosnegutu.netlify.app)
 5. In [constants.js](/src/utils/constants.js), modify the redirect uri to that of your application.
 
    ```js
-   export const REDIRECT_URI = your_applicaion_redirect_uri;
+   export const REDIRECT_URI = your_application_redirect_uri;
    ```
 
 ### Running the app
