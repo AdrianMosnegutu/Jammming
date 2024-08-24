@@ -8,7 +8,7 @@ Once they've selected their favorite tracks, they can customize the playlist by 
 
 Users can log in using their Spotify credentials.
 
-The web app is available [here](https://jammming-adrian-mosnegutu.netlify.app)
+The web version is available [here](https://jammming-adrian-mosnegutu.netlify.app).
 
 ## Features
 
