@@ -1,5 +1,5 @@
 export const MAX_IMAGE_SIZE_KB = 192;
-export const REDIRECT_URI = "http://localhost:5173/callback";
+export const REDIRECT_URI = "https://jammming-adrian-mosnegutu.netlify.app";
 export const SCOPE = [
   "user-read-private",
   "user-read-email",
