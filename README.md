@@ -8,6 +8,8 @@ Once they've selected their favorite tracks, they can customize the playlist by 
 
 Users can log in using their Spotify credentials.
 
+The web app is available [here](https://jammming-adrian-mosnegutu.netlify.app)
+
 ## Features
 
 - **Search & Filter:** Find songs using filters such as track, artist, album, or genre.
