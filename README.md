@@ -58,6 +58,12 @@ The web app is available [here](https://jammming-adrian-mosnegutu.netlify.app)
 
    You only need to add the Client ID since this project uses the authorization code flow with PKCE.
 
+5. In [constants.js](/src/utils/constants.js), modify the redirect uri to that of your application.
+
+   ```js
+   export const REDIRECT_URI = your_applicaion_redirect_uri;
+   ```
+
 ### Running the app
 
 1. Start the development server:
