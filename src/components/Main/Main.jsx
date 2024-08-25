@@ -9,19 +9,19 @@ const Main = ({ searchResults }) => {
   const { tracklist } = useContext(TracklistContext);
 
   return (
-    <main className="flex h-[calc(100vh-6rem)] bg-dark-main text-light-main">
+    <main className="relative top-20 flex h-fit flex-col-reverse justify-start bg-dark-main text-light-main lg:top-24 xl:h-[calc(100vh-6rem)] xl:min-h-[calc(900px-6rem)] xl:flex-row">
       <Tracklist
-        className="z-40 h-full w-5/12 divide-y-[1px] divide-light-main overflow-scroll bg-dark-secondary px-10 py-4"
+        className="z-40 h-fit w-full divide-y-[1px] divide-light-main overflow-scroll bg-dark-secondary px-10 py-10 lg:px-40 xl:h-full xl:w-5/12 xl:px-10 xl:py-4"
         messageIfEmpty="No tracks found..."
         iconIfEmpty={
           <FaFrown className="m-auto mt-52 text-dark-tertiary" size={350} />
         }
         trackObjectArray={searchResults}
       />
-      <div className="flex h-full w-7/12 flex-col">
+      <div className="flex h-full w-full flex-col xl:w-7/12">
         <PlaylistCreator />
         <Tracklist
-          className="z-20 h-full divide-y-[1px] divide-light-main overflow-scroll px-20 py-6"
+          className="z-20 h-fit max-h-[calc(84px*6)] divide-y-[1px] divide-light-main overflow-scroll px-10 py-10 lg:px-40 xl:h-full xl:max-h-none xl:px-10 xl:py-6 2xl:px-20"
           messageIfEmpty="Playlist is empty..."
           trackObjectArray={tracklist}
         />
