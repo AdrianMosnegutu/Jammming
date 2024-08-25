@@ -22,7 +22,7 @@ const SearchBar = () => {
 
   return (
     <form
-      className="border-light-main bg-dark-main flex h-11 w-5/12 rounded-full border"
+      className="flex h-10 w-full rounded-full border border-light-main bg-dark-main lg:h-11 lg:w-5/12"
       onSubmit={handleSubmit}
     >
       <InputField
@@ -31,7 +31,7 @@ const SearchBar = () => {
       />
       <Filter filter={localFilter} onFilterChange={setLocalFilter} />
       <button
-        className="bg-spotify-green border-light-main text-dark-main rounded-r-full border-l px-6 transition ease-in hover:bg-opacity-75 active:bg-opacity-50"
+        className="rounded-r-full border-l border-light-main bg-spotify-green px-6 text-dark-main transition ease-in hover:bg-opacity-75 active:bg-opacity-50"
         type="submit"
       >
         <FaSearch size={25} />
