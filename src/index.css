@@ -18,7 +18,7 @@ header {
 
 @layer components {
   .player-icon-container {
-    @apply player-icon relative right-20 rounded-full border-2 border-light-main p-4;
+    @apply player-icon relative right-[43px] rounded-full border-light-main xl:right-20 xl:border-2 xl:p-4;
   }
 
   .player-icon {

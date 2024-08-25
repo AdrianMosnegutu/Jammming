@@ -8,13 +8,13 @@ const TrackDetails = ({ name, artists, album, previewAudio }) => {
     previewAudio && currentPlayingPreview?.src === previewAudio.src;
 
   return (
-    <div className="flex h-full w-full flex-col gap-2">
+    <div className="flex h-full w-full flex-col xl:gap-2">
       <h2
-        className={`text-3xl transition ${trackIsPlaying && "text-spotify-green underline"} ease-in group-hover:text-spotify-green`}
+        className={`text-xl transition xl:text-3xl ${trackIsPlaying && "text-spotify-green underline"} ease-in group-hover:text-spotify-green`}
       >
         {name}
       </h2>
-      <p>
+      <p className="text-xs xl:text-base">
         <strong>Artists:</strong> {artists.join(", ")}
         <br />
         <strong>Album:</strong> {album}

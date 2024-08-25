@@ -10,7 +10,7 @@ const TrackCoverArt = ({ coverArt, previewAudio }) => {
 
   return (
     coverArt && (
-      <div className="flex aspect-square w-24 flex-shrink-0 items-center overflow-hidden rounded-md">
+      <div className="flex aspect-square w-14 flex-shrink-0 items-center overflow-hidden rounded-md xl:w-24">
         <img
           className={`h-full w-full object-cover opacity-100 ${trackIsPlaying && "opacity-50"} ${previewAudio && "transition-opacity ease-in group-hover:opacity-50"}`}
           src={coverArt}

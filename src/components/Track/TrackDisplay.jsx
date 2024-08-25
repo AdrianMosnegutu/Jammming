@@ -27,7 +27,7 @@ const TrackDisplay = ({ trackObject, buttonIcon, onClick }) => {
   return (
     <li className="group flex w-full items-center" key={id}>
       <div
-        className="flex w-full cursor-pointer items-center gap-6 px-2 py-5"
+        className="flex w-full cursor-pointer items-center gap-6 px-1 py-3 xl:px-2 xl:py-5"
         onClick={handlePlayPreview}
       >
         <TrackCoverArt coverArt={coverArt} previewAudio={previewAudio} />
