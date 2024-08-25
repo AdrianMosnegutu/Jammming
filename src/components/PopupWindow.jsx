@@ -19,11 +19,11 @@ const popupIcon = (type) => {
 };
 
 const PopupWindow = ({ type, message }) => (
-  <div className="absolute left-0 top-0 z-[60] flex h-[100vh] w-[100vw] items-center justify-center bg-dark-main bg-opacity-50 backdrop-blur-sm">
-    <div className="flex aspect-square w-[30rem] flex-col items-center justify-around rounded-xl bg-dark-secondary py-10 text-light-main shadow-lg">
+  <div className="fixed left-0 top-0 z-[60] flex h-screen w-screen items-center justify-center bg-dark-main bg-opacity-50 backdrop-blur-sm">
+    <div className="flex aspect-square w-[25rem] flex-col items-center justify-around rounded-xl bg-dark-secondary py-10 text-light-main shadow-lg xl:w-[30rem]">
       {popupIcon(type)}
       <h3
-        className={`text-3xl ${type === "loading" && "before:animate-text-loading before:content-['Loading']"}`}
+        className={`text-2xl xl:text-3xl ${type === "loading" && "before:animate-text-loading before:content-['Loading']"}`}
       >
         {type !== "loading" && message}
       </h3>
