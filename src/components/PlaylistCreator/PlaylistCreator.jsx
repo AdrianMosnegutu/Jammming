@@ -70,15 +70,15 @@ const PlaylistCreator = () => {
     <>
       {popupWindowState && <PopupWindow {...popupWindowState} />}
       <form
-        className="z-30 flex w-full flex-col items-center justify-center gap-12 px-32 py-12 shadow-lg"
+        className="z-30 flex w-full flex-col items-center justify-center gap-12 px-10 py-12 shadow-lg md:px-10 lg:px-40 xl:px-10 2xl:px-32"
         onSubmit={handlePlaylistCreation}
       >
-        <div className="flex w-full gap-12">
+        <div className="flex w-full flex-col items-center gap-12 md:flex-row">
           <PlaylistCover
             onCoverChange={setCover}
             onError={setPopupWindowState}
           />
-          <div className="flex w-full flex-col gap-5">
+          <div className="flex h-full w-full flex-col gap-5">
             <PlaylistName name={name} onNameChange={setName} />
             <PlaylistDescription
               description={description}
