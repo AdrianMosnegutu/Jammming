@@ -38,14 +38,11 @@ const PlaylistCreator = () => {
     createPlaylist(profile.id, name, description, isPublic)
       .then((playlistID) => {
         setPlaylistCover(playlistID, cover);
-        return playlistID;
-      })
-      .then((playlistID) =>
         addTracksToPlaylist(
           playlistID,
           tracklist.map((trackObject) => trackObject.uri),
-        ),
-      )
+        );
+      })
       .then(() => {
         setPopupWindowState({
           type: "success",
